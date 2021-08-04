@@ -56,6 +56,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // Listening on all local IPs
       host: true,
       port: VITE_PORT,
+      open: true,
       // Load proxy configuration from .env
       proxy: createProxy(VITE_PROXY),
     },
@@ -82,7 +83,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     css: {
       preprocessorOptions: {
-        less: {
+        scss: {
           modifyVars: generateModifyVars(),
           javascriptEnabled: true,
         },
