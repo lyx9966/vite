@@ -1,6 +1,5 @@
 /**
- *  Introduces component library styles on demand.
- * https://github.com/anncwb/vite-plugin-style-import
+ *  引入elementui样式
  */
 
 import styleImport from 'vite-plugin-style-import'
@@ -10,10 +9,15 @@ export function configStyleImportPlugin(isBuild: boolean) {
   const styleImportPlugin = styleImport({
     libs: [
       {
-        libraryName: 'ant-design-vue',
+        libraryName: 'element-plus',
         esModule: true,
+        ensureStyleFile: true,
         resolveStyle: (name) => {
-          return `ant-design-vue/es/${name}/style/index`
+          name = name.slice(3)
+          return `element-plus/packages/theme-chalk/src/${name}.scss`
+        },
+        resolveComponent: (name) => {
+          return `element-plus/lib/${name}`
         },
       },
     ],

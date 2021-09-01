@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h3>HOME PAGE</h3>
+    <h3 class="text-gray-900">HOME PAGE</h3>
+    <el-button>123</el-button>
   </div>
 </template>
 
@@ -17,6 +18,6 @@
 <style lang="scss" scoped>
   h3 {
     font-weight: bold;
-    color: $base-color-01;
+    // color: $base-color-01;
   }
 </style>

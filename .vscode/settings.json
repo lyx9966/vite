@@ -108,7 +108,8 @@
   "[vue]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": false
-    }
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "i18n-ally.localesPaths": ["src/locales/lang"],
   "i18n-ally.keystyle": "nested",
@@ -119,12 +120,10 @@
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.enabledFrameworks": ["vue", "react"],
   "cSpell.words": [
-    "vben",
     "windi",
     "browserslist",
     "tailwindcss",
     "esnext",
-    "antv",
     "tinymce",
     "qrcode",
     "sider",

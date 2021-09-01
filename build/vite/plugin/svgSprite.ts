@@ -1,6 +1,5 @@
 /**
  *  Vite Plugin for fast creating SVG sprites.
- * https://github.com/anncwb/vite-plugin-svg-icons
  */
 
 import SvgIconsPlugin from 'vite-plugin-svg-icons'

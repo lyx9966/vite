@@ -3,7 +3,6 @@ import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { resolve } from 'path'
 
-import { generateModifyVars } from './build/generate/generateModifyVars'
 import { createProxy } from './build/vite/proxy'
 import { wrapperEnv } from './build/utils'
 import { createVitePlugins } from './build/vite/plugin'
@@ -84,8 +83,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         scss: {
-          modifyVars: generateModifyVars(),
           javascriptEnabled: true,
+          additionalData: `@import "./src/styles/index.scss";`,
         },
       },
     },

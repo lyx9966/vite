@@ -8,11 +8,10 @@ import purgeIcons from 'vite-plugin-purge-icons'
 
 import { configHtmlPlugin } from './html'
 import { configCompressPlugin } from './compress'
-// import { configStyleImportPlugin } from './styleImport'
-// import { configVisualizerConfig } from './visualizer'
+import { configStyleImportPlugin } from './styleImport'
+import { configVisualizerConfig } from './visualizer'
 import { configImageminPlugin } from './imagemin'
 import { configSvgIconsPlugin } from './svgSprite'
-import { configHmrPlugin } from './hmr'
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -29,9 +28,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     vueJsx(),
   ]
 
-  // TODO
-  !isBuild && vitePlugins.push(configHmrPlugin())
-
   // @vitejs/plugin-legacy
   VITE_LEGACY && isBuild && vitePlugins.push(legacy())
 
@@ -45,10 +41,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   vitePlugins.push(purgeIcons())
 
   // vite-plugin-style-import
-  // vitePlugins.push(configStyleImportPlugin(isBuild))
+  vitePlugins.push(configStyleImportPlugin(isBuild))
 
   // rollup-plugin-visualizer
-  // vitePlugins.push(configVisualizerConfig())
+  vitePlugins.push(configVisualizerConfig())
 
   // The following plugins only work in the production environment
   if (isBuild) {

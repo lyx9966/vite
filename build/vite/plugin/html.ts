@@ -1,6 +1,5 @@
 /**
  * Plugin to minimize and use ejs template syntax in index.html.
- * https://github.com/anncwb/vite-plugin-html
  */
 import type { Plugin } from 'vite'
 
