@@ -52,11 +52,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       ],
     },
     server: {
-      // Listening on all local IPs
       host: true,
       port: VITE_PORT,
       open: true,
-      // Load proxy configuration from .env
       proxy: createProxy(VITE_PROXY),
     },
     build: {
@@ -65,22 +63,27 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       terserOptions: {
         compress: {
           keep_infinity: true,
-
-          // Used to delete console in production environment
           drop_console: VITE_DROP_CONSOLE,
         },
       },
-      // Turning off brotliSize display can slightly reduce packaging time
       brotliSize: false,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'element-plus': ['element-plus'],
+          },
+        },
+      },
       chunkSizeWarningLimit: 2000,
     },
     define: {
-      // setting vue-i18-next
-      // Suppress warning
       __INTLIFY_PROD_DEVTOOLS__: false,
       __APP_INFO__: JSON.stringify(__APP_INFO__),
     },
     css: {
+      postcss: {
+        plugins: [require('autoprefixer'), require('tailwindcss'), require('postcss-nested')],
+      },
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
@@ -89,11 +92,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
 
-    // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
     plugins: createVitePlugins(viteEnv, isBuild),
 
     optimizeDeps: {
-      // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
       include: ['@iconify/iconify', 'moment/dist/locale/zh-cn', 'moment/dist/locale/eu'],
       exclude: ['vue-demi'],
     },

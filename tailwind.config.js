@@ -1,20 +1,10 @@
 module.exports = {
-  mode: 'jit',
-  // darkMode: 'class',
   plugins: [createEnterPlugin()],
   purge: {
-    enable: process.env.NODE_ENV === 'production',
-    content: ['./index.html', './src/**/*.{vue,ts,tsx}'],
+    content: ['./src/**/*.{vue,ts,tsx}'],
   },
   theme: {
     fontSize: {
-      sm: '8px',
-      md: '12px',
-      base: '14px',
-      lg: '16px',
-      xl: '24px',
-    },
-    spacing: {
       sm: '8px',
       md: '12px',
       base: '14px',

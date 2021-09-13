@@ -41,7 +41,7 @@ module.exports = {
     'declaration-colon-space-before': 'never',
     'declaration-block-trailing-semicolon': null,
     'rule-empty-line-before': [
-      'always',
+      'never-multi-line',
       {
         ignore: ['after-comment', 'first-nested'],
       },
