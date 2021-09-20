@@ -18,7 +18,7 @@
         :show-arrow="false"
         placement="bottom"
         offset="0"
-        trigger="click"
+        trigger="hover"
         popper-class="popper-user-menu"
       >
         <template #reference>
